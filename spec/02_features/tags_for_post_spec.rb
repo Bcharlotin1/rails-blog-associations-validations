@@ -17,7 +17,7 @@ describe 'tags for posts', :type => :feature do
     check('cute')
     click_button('Create Post')
     expect(page).to have_content("Post title")
-    
+    expect(page).to have_content("cute")
   end
 
   it 'can create a post with adding multiple tags' do
@@ -27,6 +27,8 @@ describe 'tags for posts', :type => :feature do
     check('cute')
     check('adorable')
     click_button('Create Post')
-  
+    expect(page).to have_content("Post title")
+    expect(page).to have_content("cute")
+    expect(page).to have_content("adorable")
   end
 end
